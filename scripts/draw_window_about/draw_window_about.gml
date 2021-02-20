@@ -9,9 +9,9 @@ function draw_window_about() {
 	draw_sprite_ext(spr_logo, 0, x1 + 86, y1 + 50, 0.55, 0.55, 0, c_white, 1)
 	draw_set_halign(fa_center)
 	draw_set_font(fnt_info_med_bold) 
-	draw_text(x1 + 150, y1 + 200, "Open Note Block Studio")
+	draw_text(x1 + 150, y1 + 200, "音符盒音乐制作器")
 	draw_set_font(fnt_main) 
-	draw_text(x1 + 150, y1 + 217, "Version " + version + " - Released " + version_date + "\n\nThis program is a continuation of\n Minecraft Note Block Studio, \ncreated by David Norgren. \n\nThis product is not affiliated with\nMojang Studios, Microsoft Studios\nor the game Minecraft.")
+	draw_text(x1 + 150, y1 + 217, "版本号 " + version + " - 正式版 " + version_date + "\n\n这个软件是由\n 我的世界中的音符盒改编而来, \由 David Norgren 制作. \n\n它不是\nMojang 工作室, 微软工作室\n和我的世界")
 	draw_set_halign(fa_left)
 	if (draw_button2(x1 + 120, y1 + 370, 72, "OK", false)) window = 0
 
