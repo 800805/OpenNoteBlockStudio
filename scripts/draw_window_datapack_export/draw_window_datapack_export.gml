@@ -6,7 +6,7 @@ function draw_window_datapack_export() {
 	y1 = floor(window_height / 2 - 215)
 	draw_window(x1, y1, x1 + 550, y1 + 430)
 	draw_set_font(fnt_mainbold)
-	draw_text(x1 + 8, y1 + 8, "Data Pack Export")
+	draw_text(x1 + 8, y1 + 8, "导出为数据包")
 	draw_set_font(fnt_main) 
 
 	b = 8
@@ -70,7 +70,7 @@ function draw_window_datapack_export() {
 		draw_theme_color()
 
 		//Name
-		draw_text(x1 + 16, y1 + 208, "Unique name:")
+		draw_text(x1 + 16, y1 + 208, "数据包名:")
 		if (song_name != "") dat_name = song_name
 		else if (filename != "") dat_name = string_copy(filename_name(filename), 1, string_length(filename_name(filename))-4)
 		else dat_name = ""
@@ -79,19 +79,19 @@ function draw_window_datapack_export() {
 		//Namespace
 		draw_set_color(c_gray)
 		if ((string_path(dat_name) != "") && (string_path(dat_namespace) != "")) draw_theme_color()
-		draw_text(x1 + 16, y1 + 255, "Namespace:")
+		draw_text(x1 + 16, y1 + 255, "命名空间(建议留空):")
 		draw_theme_color()
 		dat_namespace = draw_inputbox(51,x1 + 16, y1 + 272,145,dat_namespace,"(optional) Use this to place the functions under a custom namespace."+br+"If empty, namespace will be the name of the song.")
 
 		//Path
 		draw_set_color(c_gray)
 		if ((string_path(dat_name) != "") && (string_path(dat_namespace) != "") && dat_getpath(dat_path) != "") draw_theme_color()
-		draw_text(x1 + 16, y1 + 301, "Path:")
+		draw_text(x1 + 16, y1 + 301, "相对路径(建议留空):")
 		draw_theme_color()
 		dat_path = draw_inputbox(52,x1 + 16, y1 + 318,145,dat_path,"(optional) Path to the song from the main 'functions'"+br+"folder. You can use '/' to add subfolders.")
 
 		//Preview
-		draw_text(x1 + 16, y1 + 348, "Command preview:")
+		draw_text(x1 + 16, y1 + 348, "歌曲播放指令:")
 		draw_set_font(fnt_mainbold)
 		if (string_path(dat_name) = "") draw_set_color(c_gray)
 		draw_text(x1 + 16, y1 + 365, dat_preview(dat_name, dat_namespace, dat_path))
@@ -112,7 +112,7 @@ function draw_window_datapack_export() {
 		if (draw_radiobox(x1 + 264, y1 + 304, dat_source = "weather", "weather", "Controlled by Weather slider")) dat_source = "weather"
 
 		//Export as ZIP
-		if (draw_checkbox(x1 + 192, y1 + 334, dat_usezip, "Export as ZIP", "Whether to export the data pack as a ZIP file."+br+"If unchecked, it will be saved as a folder instead.")) dat_usezip=!dat_usezip
+		if (draw_checkbox(x1 + 192, y1 + 334, dat_usezip, "导出为压缩文件", "Whether to export the data pack as a ZIP file."+br+"If unchecked, it will be saved as a folder instead.")) dat_usezip=!dat_usezip
 
 		//Locked layers
 		if (draw_checkbox(x1 + 362, y1 + 213, dat_includelocked, "Include locked layers", "Whether to include locked layers in the data pack.")) dat_includelocked=!dat_includelocked
@@ -174,7 +174,7 @@ function draw_window_datapack_export() {
 	if (wmenu = 1 && !mouse_check_button(mb_left)) wmenu = 0
 
 	//Submit button
-	if (draw_button2(x1 + 470, y1 + 398, 72, "Export", false)) {
+	if (draw_button2(x1 + 470, y1 + 398, 72, "导出", false)) {
 		if(string_lettersdigits(dat_name) != "") {
 			if(string_count("/", dat_getpath(dat_path)) >= 5) {
 				message("Path can only contain up to 5 subfolders", "Error")
@@ -195,7 +195,7 @@ function draw_window_datapack_export() {
 	}
 
 	//Cancel button
-	if (draw_button2(x1 + 390, y1 + 398, 72, "Cancel", false)) {
+	if (draw_button2(x1 + 390, y1 + 398, 72, "取消", false)) {
 		window = 0
 	}
 
